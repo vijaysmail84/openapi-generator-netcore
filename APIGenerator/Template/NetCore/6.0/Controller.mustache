@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+using {{basenamespace}}.API.Services;
+{{#if HasModel}}using {{basenamespace}}.API.Models;{{/if}}
+
+namespace {{basenamespace}}.API.Controllers
+{
+    /// <summary>
+    ///
+    ///</summary>
+    [ApiController]
+    public class {{controllername}} : ControllerBase
+    {
+        //Inject logger and services.
+        private readonly ILogger<{{controllername}}> _logger;
+        private readonly I{{servicename}} _service;
+
+        public {{controllername}}(ILogger<{{controllername}}> logger, I{{servicename}} service)
+        {
+            _logger = logger;
+            _service = service;
+        }
+
+        {{#each Operations}}
+        /// <summary>
+        /// {{OperationSummary}}
+        ///</summary>
+        [Http{{OperationVerb}}("{{OperationPath}}")]
+        {{#each OperationResponses}}{{#!nonewlinestart}}
+[ProducesResponseType({{#if returns}}{{returns}}, {{/if}}{{statuscode}})]
+        {{#!nonewlineend}}{{/each}}public async Task<IActionResult> {{OperationName}}({{OperationParameters}})
+        {
+            //TODO:Uncomment and add service call.
+            {{#each OperationResponses}}{{#!nonewlinestart}}// return StatusCode({{statuscode}}, default({{modelname}}));
+            {{#!nonewlineend}}{{/each}}
+            throw new NotImplementedException();
+         }
+            {{/each}}
+       }
+}

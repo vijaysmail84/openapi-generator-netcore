@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+{{#if HasModel}}using {{basenamespace}}.API.Models;{{/if}}
+
+namespace {{basenamespace}}.API.Services
+{
+    /// <summary>
+    ///
+    ///</summary>
+    public interface I{{servicename}}
+    {
+        {{#each Operations}}
+        /// <summary>
+        /// {{OperationSummary}}
+        ///</summary>
+        public Task {{OperationName}}Async({{ServiceParameters}});
+        {{/each}}
+     }
+}

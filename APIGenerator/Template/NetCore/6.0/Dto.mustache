@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace {{modelnamespace}}.DTO
+{
+    class {{modelname}}
+    {
+        {{#each modelItems}}
+        ///<summary>
+        /// {{description}}
+        ///</summary>
+        public {{datatype}} {{name}} { get; {{isreadonly}} set; }
+        {{/each}}
+    }
+}

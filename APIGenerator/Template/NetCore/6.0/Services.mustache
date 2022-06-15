@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+{{#if HasModel}}using {{basenamespace}}.API.Models;{{/if}}
+
+namespace {{basenamespace}}.API.Services
+{
+    /// <summary>
+    ///
+    ///</summary>
+    public class {{servicename}}
+    {
+        //Inject logger and services.
+        private readonly ILogger<{{servicename}}> _logger;
+        private readonly I{{servicename}} _service;
+
+        public {{servicename}}(ILogger<{{servicename}}> logger, I{{servicename}} service)
+        {
+            _logger = logger;
+            _service = service;
+        }
+
+        {{#each Operations}}
+        /// <summary>
+        /// {{OperationSummary}}
+        /// </summary>
+        public async Task {{OperationName}}Async({{ServiceParameters}})
+        {
+            //TODO:Uncomment and add logic and change return type with Task.
+             throw new NotImplementedException();
+        }
+        {{/each}}
+     }
+}
