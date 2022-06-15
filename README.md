@@ -1,6 +1,7 @@
 # OpenAPI Generator .Net 6
 
 ## Console application to generate WebAPI project for .Net 6 
+The generator creates seperate projects by tag assigned to the paths.
 
 ### Console Input options 
 
@@ -193,3 +194,4 @@ components:
 
 ### Output project structure
 
+<img src="https://user-images.githubusercontent.com/63340692/173826183-6e570117-a33b-4875-b644-60e33eff1ae7.PNG"/>
