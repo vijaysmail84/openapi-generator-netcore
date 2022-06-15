@@ -1,4 +1,3 @@
-# MustacheTemplate
-Mustache Implementation
+<h1 align="center">OpenAPI Generator .Net 6</h1>
 
-API Boilerplate for .Net 6
+Console application to generate WebAPI .Net 6 project 
